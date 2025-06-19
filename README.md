@@ -135,10 +135,10 @@ kubectl delete -f mongo-express-service.yml \
                -f mongo-configmap.yml
 ```
 ## 📄 License
-MIT
+### MIT
 
 ## 📚 Documentation
-MongoDB Official Docs
-Mongo Express on GitHub
-Kubernetes Secrets Documentation
+### MongoDB Official Docs
+### Mongo Express on GitHub
+### Kubernetes Secrets Documentation
 
