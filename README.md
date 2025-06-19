@@ -3,12 +3,19 @@ This project demonstrates a Kubernetes deployment of MongoDB with Mongo Express 
 
 ## 📂 Project Structure
 ├── README.md
+
 ├── mongo-configmap.yml # MongoDB connection URL configuration
+
 ├── mongo-express-service.yml # External access Service for Mongo Express
+
 ├── mongo-express.yml # Mongo Express Deployment configuration
+
 ├── mongo-service.yml # Internal MongoDB Service
+
 ├── mongo.yml # MongoDB Deployment configuration
+
 └── secret.yml # Authentication secrets
+
 
 ## ✅ Prerequisites
 - A Kubernetes cluster (Minikube recommended for local testing)  
