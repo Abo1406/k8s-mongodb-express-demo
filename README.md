@@ -31,7 +31,7 @@ echo -n "your_password" | sha512sum | awk '{print $1}'
 Update secret.yml with your hashed values (remove any newlines), then apply:
 kubectl apply -f secret.yml
 
-2. Apply Configurations
+### 2. Apply Configurations
 Deploy all components in order:
 kubectl apply -f mongo-configmap.yml
 kubectl apply -f mongo.yml
@@ -39,13 +39,13 @@ kubectl apply -f mongo-service.yml
 kubectl apply -f mongo-express.yml
 kubectl apply -f mongo-express-service.yml
 
-3. Verify Deployment
+### 3. Verify Deployment
 Check running resources:
 
 kubectl get all
 kubectl get service mongo-express-service
 
-4. Access Mongo Express
+### 4. Access Mongo Express
 
 Minikube
 minikube service mongo-express-service
@@ -54,7 +54,7 @@ Other clusters
 kubectl get service mongo-express-service
 Access using the EXTERNAL-IP or NodePort (default: 30000).
 
-🔧 Configuration Details
+## 🔧 Configuration Details
 Secret Management (secret.yml)
 
 Stores SHA-512 hashed MongoDB root credentials
@@ -91,7 +91,7 @@ mongo-service.yml: Internal ClusterIP for MongoDB (port 27017)
 
 mongo-express-service.yml: External LoadBalancer/NodePort for web access (port 30000)
 
-🔒 Security Notes
+## 🔒 Security Notes
 🛡️ Always replace default secrets before production use
 
 🌐 Use namespace isolation for production environments
@@ -104,7 +104,7 @@ mongo-express-service.yml: External LoadBalancer/NodePort for web access (port 3
 
 🔍 Avoid committing real secrets to version control
 
-🐞 Troubleshooting
+## 🐞 Troubleshooting
 # Check Pod status and events
 kubectl describe pod <pod-name>
 
@@ -122,7 +122,7 @@ kubectl exec -it <mongo-pod> -- mongo --host mongodb-service \
 # Check Service endpoints
 kubectl describe service mongodb-service
 
-🧹 Cleanup
+## 🧹 Cleanup
 Remove all resources:
 kubectl delete -f mongo-express-service.yml \
                -f mongo-express.yml \
@@ -130,10 +130,10 @@ kubectl delete -f mongo-express-service.yml \
                -f mongo.yml \
                -f secret.yml \
                -f mongo-configmap.yml
-📄 License
+## 📄 License
 MIT
 
-📚 Documentation
+## 📚 Documentation
 MongoDB Official Docs
 Mongo Express on GitHub
 Kubernetes Secrets Documentation
