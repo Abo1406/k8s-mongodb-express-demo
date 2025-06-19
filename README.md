@@ -106,21 +106,21 @@ mongo-express-service.yml: External LoadBalancer/NodePort for web access (port 3
 🔍 Avoid committing real secrets to version control
 
 ## 🐞 Troubleshooting
-# Check Pod status and events
+### Check Pod status and events
 kubectl describe pod <pod-name>
 
-# View Pod logs
+### View Pod logs
 kubectl logs <pod-name>
 
-# Verify secret values
+### Verify secret values
 kubectl get secret mongodb-secret -o jsonpath='{.data}' | base64 --decode
 
-# Test MongoDB internal connection
+### Test MongoDB internal connection
 kubectl exec -it <mongo-pod> -- mongo --host mongodb-service \
   -u $(kubectl get secret mongodb-secret -o jsonpath='{.data.mongo-root-username}' | base64 --decode) \
   -p $(kubectl get secret mongodb-secret -o jsonpath='{.data.mongo-root-password}' | base64 --decode)
 
-# Check Service endpoints
+### Check Service endpoints
 kubectl describe service mongodb-service
 
 ## 🧹 Cleanup
