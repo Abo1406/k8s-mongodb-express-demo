@@ -28,6 +28,7 @@ Generate SHA-512 hashed credentials:
 ```bash
 echo -n "your_username" | sha512sum | awk '{print $1}'
 echo -n "your_password" | sha512sum | awk '{print $1}'
+```
 Update secret.yml with your hashed values (remove any newlines), then apply:
 kubectl apply -f secret.yml
 
