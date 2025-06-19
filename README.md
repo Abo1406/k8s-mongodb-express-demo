@@ -116,21 +116,24 @@ kubectl logs 'pod-name'
 kubectl get secret mongodb-secret -o jsonpath='{.data}' | sha512 --decode
 
 ### Test MongoDB internal connection
+```bash
 kubectl exec -it <mongo-pod> -- mongo --host mongodb-service \
   -u $(kubectl get secret mongodb-secret -o jsonpath='{.data.mongo-root-username}' | base64 --decode) \
   -p $(kubectl get secret mongodb-secret -o jsonpath='{.data.mongo-root-password}' | base64 --decode)
-
+```
 ### Check Service endpoints
 kubectl describe service mongodb-service
 
 ## 🧹 Cleanup
 Remove all resources:
+```bash
 kubectl delete -f mongo-express-service.yml \
                -f mongo-express.yml \
                -f mongo-service.yml \
                -f mongo.yml \
                -f secret.yml \
                -f mongo-configmap.yml
+```
 ## 📄 License
 MIT
 
